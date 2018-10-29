@@ -44,10 +44,13 @@ class Proxy6:
         return self._send('settype', params=f'ids={ids}&'
                                             f'type={types}')
 
-    def set_descr(self, new, ids, olds=None):
-        return self._send('setdescr', params=f'new={new}&'
-                                             f'olds={olds}&'
-                                             f'ids={ids}')['count']
+    def set_descr(self, new, ids=None, olds=None):
+        params = f'new={new}'
+        if ids:
+            params += f'&ids={ids}'
+        if olds:
+            params += f'&olds={olds}'
+        return self._send('setdescr', params=params)['count']
 
     def buy(self, count, period, country, version=None, types=None, descr='', auto_prolong=False, nokey=False):
         params = f'count={count}'\
