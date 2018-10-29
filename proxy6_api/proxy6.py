@@ -36,8 +36,10 @@ class Proxy6:
     def get_proxy(self, state='all', descr='', nokey=False):
         params = f'state={state}'\
                  f'&descr={descr}'
+
         if nokey:
             params += '&nokey'
+
         return self._send('getproxy', params=params)['list']
 
     def set_type(self, ids, types):
@@ -46,10 +48,12 @@ class Proxy6:
 
     def set_descr(self, new, ids=None, olds=None):
         params = f'new={new}'
+
         if ids:
             params += f'&ids={ids}'
         if olds:
             params += f'&olds={olds}'
+
         return self._send('setdescr', params=params)['count']
 
     def buy(self, count, period, country, version=None, types=None, descr='', auto_prolong=False, nokey=False):
@@ -59,6 +63,7 @@ class Proxy6:
                  f'&version={version}'\
                  f'&types={types}'\
                  f'&descr={descr}'
+
         if auto_prolong:
             params += '&auto_prolong'
         if nokey:
@@ -71,7 +76,7 @@ class Proxy6:
                  f'ids={ids}'
         if nokey:
             params += 'nokey'
-        return self._send('prolong', params=params)
+        return self._send('prolong', params=params)['list']
 
     def delete(self, ids=None, descr=None):
         params = ''
