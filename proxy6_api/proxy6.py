@@ -33,7 +33,7 @@ class Proxy6:
     def get_country(self, version=None):
         return self._send('getcountry', params=f'version={version}')['list']
 
-    def get_proxy(self, state=None, descr='', nokey=False):
+    def get_proxy(self, state='all', descr='', nokey=False):
         params = f'state={state}'\
                  f'&descr={descr}'
         if nokey:
@@ -44,7 +44,7 @@ class Proxy6:
         return self._send('settype', params=f'ids={ids}&'
                                             f'type={types}')
 
-    def set_descr(self, new, olds=None, ids=None):
+    def set_descr(self, new, ids, olds=None):
         return self._send('setdescr', params=f'new={new}&'
                                              f'olds={olds}&'
                                              f'ids={ids}')['count']
