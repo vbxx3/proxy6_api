@@ -64,7 +64,7 @@ class Proxy6:
         if nokey:
             params += '&nokey'
 
-        return self._send('buy', params=params)
+        return self._send('buy', params=params)['list']
 
     def prolong(self, period, ids, nokey=False):
         params = f'period={period}'\
