@@ -61,7 +61,7 @@ class Proxy6:
                  f'&period={period}'\
                  f'&country={country}'\
                  f'&version={version}'\
-                 f'&types={types}'\
+                 f'&type={types}'\
                  f'&descr={descr}'
 
         if auto_prolong:
