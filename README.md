@@ -1,8 +1,6 @@
 # Proxy6 API [Python]
   Python API для [сервиса прокси](https://proxy6.net).
   
-  Требуется тестирование библиотеки, писать [сюда](https://linkedin.com/in/vbxx3).
-  
   Оригинальный [REST](https://proxy6.net/developers).
 ***
 ### Установка:
